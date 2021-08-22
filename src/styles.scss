@@ -30,3 +30,13 @@ div[class^='col']{
   height: 10vh;
   background-color: mat.get-color-from-palette($news-ilumno-primary, 'default');
 }
+
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 200px;
+  justify-content: center;
+  align-items: center;
+}
