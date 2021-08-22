@@ -1,1 +1,52 @@
-<p>register works!</p>
+<h1>Registro</h1>
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-xs col-lg-3 col-lg-offset-2">
+      <mat-form-field class="form-control">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="form.get('name')?.dirty && form.get('name')?.hasError('required')"> El valor es requerido </mat-error>
+        <mat-error *ngIf="form.get('name')?.dirty && form.get('name')?.hasError('name')"> El nombre es inválido </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-xs col-lg-3 col-lg-offset-2">
+      <mat-form-field class="form-control">
+        <mat-label>Apellidos</mat-label>
+        <input matInput formControlName="family_name">
+        <mat-error *ngIf="form.get('family_name')?.dirty && form.get('family_name')?.hasError('required')"> El valor es requerido </mat-error>
+        <mat-error *ngIf="form.get('family_name')?.dirty && form.get('family_name')?.hasError('name')"> El apellido es inválido </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-xs col-lg-3 col-lg-offset-2">
+      <mat-form-field class="form-control">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="form.get('email')?.dirty && form.get('email')?.hasError('email')"> El correo es inválido </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-xs col-lg-3 col-lg-offset-2">
+      <mat-form-field class="form-control">
+        <mat-label>Teléfono</mat-label>
+        <input matInput mask="(000) 000 00 00" formControlName="phone">
+        <mat-error *ngIf="form.get('phone')?.dirty && form.get('phone')?.hasError('number')"> El número es inválido</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-xs col-lg-3 col-lg-offset-2">
+      <mat-form-field class="form-control">
+        <mat-label>Programa de interés</mat-label>
+        <mat-select formControlName="program">
+          <mat-option [value]="programme.id" *ngFor="let programme of programmes">{{programme.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-xs col-lg-3 col-lg-offset-2">
+      <mat-form-field class="form-control">
+        <mat-label>Comentarios</mat-label>
+        <textarea matInput formControlName="comment"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="col-xs col-lg-4 col-lg-offset-4">
+      <button class="btn" mat-raised-button color="primary" [disabled]="form.invalid" (click)="register()">Registrarse</button>
+    </div>
+  </div>
+</form>

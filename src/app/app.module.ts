@@ -18,6 +18,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 // NGRX Modules
 import { EffectsModule } from '@ngrx/effects';
@@ -31,6 +34,11 @@ import { appReducers } from './store/reducers';
 import { effects } from './store/effects';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsListItemComponent } from './components/news-list-item/news-list-item.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
+
 
 const materialModules = [
   MatButtonModule,
@@ -38,7 +46,10 @@ const materialModules = [
   MatToolbarModule,
   MatSidenavModule,
   MatProgressSpinnerModule,
-  MatCardModule
+  MatCardModule,
+  MatInputModule,
+  MatSelectModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
@@ -58,6 +69,15 @@ const materialModules = [
     HttpClientModule,
     EffectsModule.forRoot(effects),
     StoreModule.forRoot(appReducers),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+      autoPause: true,
+    }),
+    NgxMaskModule.forRoot(),
+    ReactiveFormsModule,
+    FormsModule,
+
     ...materialModules
   ],
   providers: [],

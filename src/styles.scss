@@ -31,7 +31,6 @@ div[class^='col']{
   background-color: mat.get-color-from-palette($news-ilumno-primary, 'default');
 }
 
-
 .spinner-container {
   display: flex;
   flex-direction: column;
@@ -39,4 +38,8 @@ div[class^='col']{
   min-height: 200px;
   justify-content: center;
   align-items: center;
+}
+
+.row {
+  margin: 0;
 }
