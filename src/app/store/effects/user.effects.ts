@@ -14,7 +14,7 @@ export class UserEffects {
       ofType(STORE_ACTIONS.REGISTER.SAVE),
       mergeMap((action: any) => this.userService.register(action.data)),
       tap(() => {
-        this.snackbar.open('Usuario registrado')
+        this.snackbar.open('Usuario registrado, Fin del registro')
       })
     ), {dispatch: false}
   )

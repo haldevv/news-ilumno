@@ -38,6 +38,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
+import { NewsComponent } from './pages/news/news.component';
 
 
 const materialModules = [
@@ -60,7 +61,8 @@ const materialModules = [
     HomeComponent,
     RegisterComponent,
     NewsListComponent,
-    NewsListItemComponent
+    NewsListItemComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,

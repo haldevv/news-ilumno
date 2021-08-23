@@ -1,0 +1,10 @@
+<ng-container *ngIf="news && !isLoadingNews; else loading">
+  <app-news-list-item [newsItem]="news"></app-news-list-item>
+</ng-container>
+
+<ng-template #loading>
+  <div class="spinner-container">
+    <h3>Cargando datos</h3>
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+</ng-template>
